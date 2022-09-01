@@ -1,0 +1,9 @@
+.cart-image {
+    width: 25px;
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+    cursor: pointer;
+    background-color: gray;
+    padding: 1px 5px;
+    border-radius: 2px;
+}
