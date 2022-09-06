@@ -1,0 +1,19 @@
+.itemCount {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 200px;
+    height: 40px;
+    background-color: white;
+    color: black;
+    border: solid 1px gray;
+    border-radius: 5px;
+}
+
+.itemCount button {
+    cursor: pointer;
+    border: none;
+    background: none;
+    color: rgb(90, 146, 205);
+    font-size: 30px;
+}
