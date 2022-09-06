@@ -4,9 +4,9 @@ import './ItemCount.style.css';
 const ItemCount = ({ stock }) => {
   const [items, setItems] = useState(0);
 
-  const onSubtract = () => items === 0 ? null : setItems(items - 1)
+  const onSubtract = () => items > 0 ? setItems(items - 1) : null
 
-  const onAdd = () => items === stock ? null : setItems(items + 1)
+  const onAdd = () => items < stock ? setItems(items + 1) : null
 
   return (
     <div className='itemCount'>
