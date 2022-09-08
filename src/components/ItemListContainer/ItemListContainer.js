@@ -1,6 +1,6 @@
-import ItemCount from "./ItemCount/ItemCount";
-import ItemList from "./ItemList/ItemList";
-import data from "./mockData/mockData";
+import ItemCount from "../ItemCount/ItemCount";
+import ItemList from "../ItemList/ItemList";
+import data from "../../mockData";
 import { useEffect, useState } from "react";
 
 const ItemListContainer = () => {
