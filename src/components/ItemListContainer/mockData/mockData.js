@@ -20,7 +20,7 @@ const data = [
     title: "Lavarropas",
     price: 600,
     image:
-      "https://www.lg.com/ar/images/lavarropas/md05962376/gallery/medium01.jpg",
+      "http://d3ugyf2ht6aenh.cloudfront.net/stores/260/267/products/lavarropas-longvie-l16508-65kg-800rpm-ef-energetica-a-a-d_nq_np_634664-mla26622394731_012018-f1-f3b197681c2f26106915170583020722-640-0.jpg",
     stock: 3,
   },
 ];
