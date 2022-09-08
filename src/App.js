@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <NavBar />
       <header className="App-header">
-      <ItemListContainer />
+        <ItemListContainer />
         <img src={logo} className="App-logo" alt="logo" />
       </header>
     </div>

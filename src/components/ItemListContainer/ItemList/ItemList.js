@@ -3,10 +3,10 @@ import Item from "./Item/Item"
 const ItemList = ({ list }) => {
 
     return (
-        <div style={{display:"flex"}}>
+        <div style={{ display: "flex" }}>
             {
                 list.map((product) => (
-                    <div key={product.id} style={{padding:"15px"}}>
+                    <div key={product.id} style={{ padding: "15px" }}>
                         <Item
                             title={product.title}
                             price={product.price}

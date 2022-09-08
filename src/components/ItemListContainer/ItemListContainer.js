@@ -4,11 +4,11 @@ import data from './mockData/mockData'
 import { useEffect, useState } from 'react'
 
 const ItemListContainer = () => {
-    const [productList, setProductList] = useState([])
+  const [productList, setProductList] = useState([])
 
   useEffect(() => {
     getProducts().then((response) => setProductList(response))
-    .catch((error) => console.log(error))
+      .catch((error) => console.log(error))
   }, [])
 
   const getProducts = () => {
@@ -21,7 +21,7 @@ const ItemListContainer = () => {
 
   return (
     <>
-    <ItemList list={productList}/>
+      <ItemList list={productList} />
       <h1>Hola</h1>
       <ItemCount stock={2} />
     </>
