@@ -8,6 +8,7 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     getProducts().then((response) => setProductList(response))
+    .catch((error) => console.log(error))
   }, [])
 
   const getProducts = () => {
