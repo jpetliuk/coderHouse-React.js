@@ -3,7 +3,7 @@ const Item = ({ title, price, image }) => {
     <>
       <img width={"200px"} src={image} alt={title} />
       <h2>{title}</h2>
-      <h3>{price}</h3>
+      <h3>${price}</h3>
     </>
   );
 };
