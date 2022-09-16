@@ -14,18 +14,27 @@ function NavBar() {
           <li>
             <NavLink
               to={"/"}
-              style={({ isActive }) =>
-                isActive ? { fontWeight: "bold" } : { color: "purple" }
-              }
+              end
+              style={({ isActive }) => (isActive ? { color: "red" } : {})}
             >
               Home
             </NavLink>
           </li>
           <li>
-            <NavLink to={"/products"}>Products</NavLink>
+            <NavLink
+              to={"/products"}
+              style={({ isActive }) => (isActive ? { color: "red" } : {})}
+            >
+              Products
+            </NavLink>
           </li>
           <li>
-            <NavLink to={"/contact"}>Contact</NavLink>
+            <NavLink
+              to={"/contact"}
+              style={({ isActive }) => (isActive ? { color: "red" } : {})}
+            >
+              Contact
+            </NavLink>
           </li>
         </ul>
       </div>

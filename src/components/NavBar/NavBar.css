@@ -28,6 +28,10 @@
   text-decoration-color: #17191d;
 }
 
+.rojo {
+  color: red;
+}
+
 .NavBar-navLinks ul li a:hover {
   text-decoration: underline;
   text-decoration-thickness: 2px;
