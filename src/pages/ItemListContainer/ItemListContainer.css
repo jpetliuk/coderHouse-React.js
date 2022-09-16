@@ -1,0 +1,29 @@
+#itemListContainer {
+  display: flex;
+  background: #282c34;
+}
+
+.itemList {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.item-container-link {
+  margin: 15px;
+  text-decoration: none;
+  color: black;
+}
+
+.item-container {
+  width: 300px;
+  height: 400px;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+}

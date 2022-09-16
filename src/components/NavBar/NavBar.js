@@ -1,6 +1,7 @@
-import "./NavBar.style.css";
+import "./NavBar.css";
 import logo from "../../logo.svg";
 import CartWidget from "../CartWidget/CartWidget";
+import { NavLink } from "react-router-dom";
 
 function NavBar() {
   return (
@@ -11,13 +12,20 @@ function NavBar() {
       <div className="NavBar-navLinks">
         <ul>
           <li>
-            <a href="/">home</a>
+            <NavLink
+              to={"/"}
+              style={({ isActive }) =>
+                isActive ? { fontWeight: "bold" } : { color: "purple" }
+              }
+            >
+              Home
+            </NavLink>
           </li>
           <li>
-            <a href="/">cars</a>
+            <NavLink to={"/products"}>Products</NavLink>
           </li>
           <li>
-            <a href="/">rockets</a>
+            <NavLink to={"/contact"}>Contact</NavLink>
           </li>
         </ul>
       </div>
