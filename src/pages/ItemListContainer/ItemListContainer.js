@@ -3,7 +3,7 @@ import ItemList from "./components/ItemList";
 import "./ItemListContainer.css";
 import { data } from "../../mockData";
 
-const ItemListContainer = async () => {
+const ItemListContainer = () => {
   const [list, setList] = useState([]);
 
   const getProducts = async () => {
