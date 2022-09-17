@@ -1,6 +1,7 @@
 #itemListContainer {
   display: flex;
   background: #282c34;
+  height: 100vh;
 }
 
 .itemList {
@@ -26,4 +27,8 @@
   justify-content: center;
   align-content: center;
   text-align: center;
+}
+
+.item-info {
+  width: 100%;
 }

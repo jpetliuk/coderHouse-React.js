@@ -7,7 +7,7 @@ const ItemDetail = ({ product }) => {
       <div>
         <p>{product.description}</p>
         <p>{product.category}</p>
-        <p>{product.price}</p>
+        <p>${product.price}</p>
       </div>
     </div>
   );

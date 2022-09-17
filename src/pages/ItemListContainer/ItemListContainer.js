@@ -1,18 +1,21 @@
 import { useState, useEffect } from "react";
 import ItemList from "./components/ItemList";
 import "./ItemListContainer.css";
+import { data } from "../../mockData";
 
 const ItemListContainer = () => {
   const [list, setList] = useState([]);
+
   const getProducts = async () => {
-    fetch("https://fakestoreapi.com/products", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setList(data));
+    setList(data);
+    // fetch("https://fakestoreapi.com/products", {
+    //   method: "GET",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => setList(data));
   };
   useEffect(() => {
     getProducts();
