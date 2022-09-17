@@ -8,7 +8,7 @@ const ItemDetailContainer = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
-  const getProduct = () => {
+  const getProduct = async () => {
     const dataFiltrada = data.filter((product) => product.id === id);
     console.log(...dataFiltrada);
     setProduct(...dataFiltrada);

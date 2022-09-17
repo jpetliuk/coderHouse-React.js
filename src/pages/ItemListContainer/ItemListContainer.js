@@ -3,12 +3,13 @@ import ItemList from "./components/ItemList";
 import "./ItemListContainer.css";
 import { data } from "../../mockData";
 
-const ItemListContainer = () => {
+const ItemListContainer = async () => {
   const [list, setList] = useState([]);
 
   const getProducts = async () => {
     setList(data);
-    // fetch("https://fakestoreapi.com/products", {
+
+    // await fetch("https://fakestoreapi.com/products", {
     //   method: "GET",
     //   headers: {
     //     "Content-Type": "application/json",
@@ -17,6 +18,7 @@ const ItemListContainer = () => {
     //   .then((response) => response.json())
     //   .then((data) => setList(data));
   };
+
   useEffect(() => {
     getProducts();
   }, []);
