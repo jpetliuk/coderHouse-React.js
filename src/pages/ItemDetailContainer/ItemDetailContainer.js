@@ -9,9 +9,11 @@ const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
 
   const getProduct = async () => {
-    const dataFiltrada = data.filter((product) => product.id === id);
-    console.log(...dataFiltrada);
-    setProduct(...dataFiltrada);
+    await setTimeout(() => {
+      const dataFiltrada = data.filter((product) => product.id === id);
+      console.log(...dataFiltrada);
+      setProduct(...dataFiltrada);
+    }, 2000);
 
     // await fetch(`https://fakestoreapi.com/products/${id}`, {
     //   method: "GET",
