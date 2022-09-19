@@ -18,7 +18,7 @@ const ItemListContainer = () => {
           setList(data);
         }, 1000);
 
-    console.log("cambio");
+    // console.log("cambio");
     // await fetch("https://fakestoreapi.com/products", {
     //   method: "GET",
     //   headers: {

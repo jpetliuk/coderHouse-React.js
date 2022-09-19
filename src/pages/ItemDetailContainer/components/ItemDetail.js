@@ -1,5 +1,5 @@
 const ItemDetail = ({ product }) => {
-  console.log(product);
+  // console.log(product);
   return (
     <div className="detail-modal">
       <img className="detail-image" src={product.image} alt={product.title} />
