@@ -14,7 +14,6 @@ const ItemDetail = ({ product }) => {
   }
   return (
     <div className="detail-modal">
-      <Link to="/">volver</Link>
       <img className="detail-image" src={product.image} alt={product.title} />
       <h2>{product.title}</h2>
       <div>
