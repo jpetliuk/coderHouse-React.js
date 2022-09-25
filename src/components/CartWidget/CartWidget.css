@@ -1,0 +1,23 @@
+.cartWidgetContainer {
+  background-color: rgba(0, 0, 0, 0.4);
+  max-height: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  color: white;
+  text-decoration: none;
+  position: relative;
+}
+
+.cart-image {
+  width: 25px;
+  margin: auto;
+  max-height: 25px;
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
+  cursor: pointer;
+  background-color: gray;
+  padding: 1px 5px;
+  border-radius: 2px;
+}

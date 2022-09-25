@@ -1,0 +1,19 @@
+.container {
+  text-align: center;
+}
+
+.cartContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: center;
+}
+
+.cartItem-container {
+  width: 200px;
+  text-align: center;
+}
+
+.cartItem-container img {
+  width: 200px;
+}

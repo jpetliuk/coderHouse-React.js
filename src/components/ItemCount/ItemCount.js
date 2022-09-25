@@ -1,7 +1,7 @@
 import "./ItemCount.style.css";
 
 const ItemCount = ({ stock, count, setCount }) => {
-  const decrease = () => (count > 0 ? setCount(count - 1) : null);
+  const decrease = () => (count > 1 ? setCount(count - 1) : null);
   const increase = () => (count < stock ? setCount(count + 1) : null);
 
   return (
