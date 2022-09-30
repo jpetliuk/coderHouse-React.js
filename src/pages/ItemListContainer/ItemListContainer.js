@@ -1,32 +1,27 @@
 import { useState, useEffect } from "react";
 import ItemList from "./components/ItemList";
 import "./ItemListContainer.css";
-import { data } from "../../mockData";
 import { useParams } from "react-router-dom";
+import { getFirestore, getDocs, collection } from "firebase/firestore";
 
 const ItemListContainer = () => {
   const [list, setList] = useState([]);
   const { categoryName } = useParams();
-  let dataFiltrada = data.filter(
-    (product) => product.category === categoryName
-  );
 
   const getProducts = async () => {
-    categoryName
-      ? setList(dataFiltrada)
-      : setTimeout(() => {
-          setList(data);
-        }, 1000);
+    const db = getFirestore();
+    const querySnapshot = collection(db, "items");
 
-    // console.log("cambio");
-    // await fetch("https://fakestoreapi.com/products", {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => setList(data));
+    await getDocs(querySnapshot).then((response) => {
+      const data = response.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
+      });
+
+      let dataFiltrada = data.filter(
+        (product) => product.category === categoryName
+      );
+      categoryName ? setList(dataFiltrada) : setList(data);
+    });
   };
 
   useEffect(() => {

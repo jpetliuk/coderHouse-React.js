@@ -2,18 +2,21 @@ import { useState, useEffect } from "react";
 import "./ItemDetailContainer.css";
 import ItemDetail from "./components/ItemDetail";
 import { useParams } from "react-router-dom";
-import { data } from "../../mockData";
+import { getFirestore, doc, getDoc } from "firebase/firestore";
 
 const ItemDetailContainer = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
 
   const getProduct = async () => {
-    await setTimeout(() => {
-      const dataFiltrada = data.filter((product) => product.id === id);
-      // console.log(...dataFiltrada);
-      setProduct(...dataFiltrada);
-    }, 1000);
+    const db = getFirestore();
+    const queryDoc = doc(db, "items", id);
+
+    await getDoc(queryDoc).then((response) => {
+      console.log(response.id);
+      console.log(response.data());
+      setProduct({ id: response.id, ...response.data() });
+    });
 
     // await fetch(`https://fakestoreapi.com/products/${id}`, {
     //   method: "GET",
