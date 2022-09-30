@@ -2,18 +2,37 @@ import "./Cart.css";
 import { useEffect, useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
+import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const { cart, removeItem } = useContext(CartContext);
   console.log("cart", cart);
 
+  const createOrder = () => {
+    const db = getFirestore();
+    const order = {
+      buyer: {
+        name: "Juan",
+        phone: "112233455",
+        email: "juan@test.com",
+      },
+      items: cart,
+      total: totalPrice,
+      date: new Date(),
+    };
+    const query = collection(db, "orders");
+    addDoc(query, order)
+      .then((response) => {
+        console.log(response);
+        alert("Compra exitosa");
+      })
+      .catch(() => alert("La compra no pudo ser completada"));
+  };
+
   const priceCalculator = () => {
-    let value = 0;
-    cart.forEach((element) => {
-      value += element.amount * element.price;
-    });
-    return setTotalPrice(value);
+    let total = cart.reduce((a, b) => a + b.price * b.amount, 0);
+    return setTotalPrice(total);
   };
 
   useEffect(() => {
@@ -44,6 +63,7 @@ const Cart = () => {
             ))}
           </div>
           <h1>${totalPrice}</h1>
+          <button onClick={() => createOrder()}>realizar compra</button>
         </>
       )}
     </div>

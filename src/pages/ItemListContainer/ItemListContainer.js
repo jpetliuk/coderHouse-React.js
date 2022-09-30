@@ -2,26 +2,43 @@ import { useState, useEffect } from "react";
 import ItemList from "./components/ItemList";
 import "./ItemListContainer.css";
 import { useParams } from "react-router-dom";
-import { getFirestore, getDocs, collection } from "firebase/firestore";
+import {
+  getFirestore,
+  getDocs,
+  collection,
+  query,
+  where,
+} from "firebase/firestore";
 
 const ItemListContainer = () => {
   const [list, setList] = useState([]);
   const { categoryName } = useParams();
 
-  const getProducts = async () => {
+  const getProducts = () => {
     const db = getFirestore();
     const querySnapshot = collection(db, "items");
-
-    await getDocs(querySnapshot).then((response) => {
-      const data = response.docs.map((doc) => {
-        return { id: doc.id, ...doc.data() };
-      });
-
-      let dataFiltrada = data.filter(
-        (product) => product.category === categoryName
+    if (categoryName) {
+      const queryFilter = query(
+        querySnapshot,
+        where("category", "==", categoryName)
       );
-      categoryName ? setList(dataFiltrada) : setList(data);
-    });
+
+      getDocs(queryFilter).then((response) => {
+        const data = response.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        });
+
+        setList(data);
+      });
+    } else {
+      getDocs(querySnapshot).then((response) => {
+        const data = response.docs.map((doc) => {
+          return { id: doc.id, ...doc.data() };
+        });
+
+        setList(data);
+      });
+    }
   };
 
   useEffect(() => {

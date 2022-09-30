@@ -13,7 +13,7 @@ function NavBar() {
         <ul>
           <li>
             <NavLink
-              to={"category/heladera"}
+              to={"category/heladeras"}
               style={({ isActive }) => (isActive ? { color: "red" } : {})}
             >
               Heladeras
@@ -21,10 +21,10 @@ function NavBar() {
           </li>
           <li>
             <NavLink
-              to={"category/licuadora"}
+              to={"category/gorros"}
               style={({ isActive }) => (isActive ? { color: "red" } : {})}
             >
-              Licuadoras
+              Gorros
             </NavLink>
           </li>
           <li>
