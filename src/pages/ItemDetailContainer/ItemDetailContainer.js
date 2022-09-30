@@ -17,18 +17,6 @@ const ItemDetailContainer = () => {
       console.log(response.data());
       setProduct({ id: response.id, ...response.data() });
     });
-
-    // await fetch(`https://fakestoreapi.com/products/${id}`, {
-    //   method: "GET",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    // },
-    // })
-    // .then((response) => response.json())
-    // .then((product) => {
-    //   console.log(product);
-    //   setProduct(product);
-    // });
   };
 
   useEffect(() => {

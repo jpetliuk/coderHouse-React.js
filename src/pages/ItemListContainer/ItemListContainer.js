@@ -16,29 +16,18 @@ const ItemListContainer = () => {
 
   const getProducts = () => {
     const db = getFirestore();
-    const querySnapshot = collection(db, "items");
-    if (categoryName) {
-      const queryFilter = query(
-        querySnapshot,
-        where("category", "==", categoryName)
-      );
+    const queryBase = collection(db, "items");
+    const querySnapshot = categoryName
+      ? query(queryBase, where("category", "==", categoryName))
+      : queryBase;
 
-      getDocs(queryFilter).then((response) => {
-        const data = response.docs.map((doc) => {
-          return { id: doc.id, ...doc.data() };
-        });
-
-        setList(data);
+    getDocs(querySnapshot).then((response) => {
+      const data = response.docs.map((doc) => {
+        return { id: doc.id, ...doc.data() };
       });
-    } else {
-      getDocs(querySnapshot).then((response) => {
-        const data = response.docs.map((doc) => {
-          return { id: doc.id, ...doc.data() };
-        });
 
-        setList(data);
-      });
-    }
+      setList(data);
+    });
   };
 
   useEffect(() => {

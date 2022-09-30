@@ -7,7 +7,6 @@ import { collection, addDoc, getFirestore } from "firebase/firestore";
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const { cart, removeItem } = useContext(CartContext);
-  console.log("cart", cart);
 
   const createOrder = () => {
     const db = getFirestore();

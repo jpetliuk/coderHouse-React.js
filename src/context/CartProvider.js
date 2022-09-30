@@ -21,22 +21,13 @@ export const CartProvider = ({ children }) => {
   };
 
   const removeItem = (itemId) => {
-    let newArray = [];
-    cart.forEach((product) => {
-      if (product.id === itemId) {
-        console.log(product);
-      } else {
-        newArray.push(product);
-      }
-    });
-    setCart(newArray);
+    setCart(cart.filter((item) => item.id !== itemId));
   };
 
   const changeAmount = (item, amount) => {
-    let index = cart.findIndex((product) => product.id === item.id);
-    let newArray = cart.splice(index, 1);
+    const index = cart.findIndex((product) => product.id === item.id);
 
-    setCart(newArray);
+    setCart(cart.splice(index, 1));
     setCart([...cart, { ...item, amount }]);
   };
 
