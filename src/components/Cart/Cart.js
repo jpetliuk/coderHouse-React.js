@@ -63,7 +63,7 @@ const Cart = () => {
             ))}
           </div>
           <h1>${totalPrice}</h1>
-          <button onClick={() => createOrder()}>realizar compra</button>
+          <button onClick={createOrder}>realizar compra</button>
         </>
       )}
     </div>
