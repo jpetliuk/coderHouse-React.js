@@ -1,5 +1,5 @@
 import "./Cart.css";
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState, useContext, useRef } from "react";
 import { CartContext } from "../../context/CartContext";
 import { Link } from "react-router-dom";
 import { collection, addDoc, getFirestore } from "firebase/firestore";
@@ -7,14 +7,21 @@ import { collection, addDoc, getFirestore } from "firebase/firestore";
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
   const { cart, removeItem } = useContext(CartContext);
+  const fnameRef = useRef(null);
+  const fphoneRef = useRef(null);
+  const femailRef = useRef(null);
 
   const createOrder = () => {
     const db = getFirestore();
+    const fname = fnameRef.current.value;
+    const fphone = fphoneRef.current.value;
+    const femail = femailRef.current.value;
+
     const order = {
       buyer: {
-        name: "Juan",
-        phone: "112233455",
-        email: "juan@test.com",
+        name: fname,
+        phone: fphone,
+        email: femail,
       },
       items: cart,
       total: totalPrice,
@@ -62,6 +69,27 @@ const Cart = () => {
             ))}
           </div>
           <h1>${totalPrice}</h1>
+          <form>
+            <input
+              ref={fnameRef}
+              type="text"
+              id="fname"
+              placeholder="Your name"
+            />
+            <input
+              ref={fphoneRef}
+              type="tel"
+              id="fphone"
+              placeholder="011 11223344"
+            />
+            <br />
+            <input
+              ref={femailRef}
+              type="text"
+              id="femail"
+              placeholder="example@gmail.com"
+            />
+          </form>
           <button onClick={createOrder}>realizar compra</button>
         </>
       )}
