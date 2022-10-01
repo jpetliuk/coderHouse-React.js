@@ -59,17 +59,22 @@ const Cart = () => {
             {cart.map((item) => (
               <div className="cartItem-container" key={item.id}>
                 <img src={item.image} alt={item.title} />
-                <h3>{item.title}</h3>
-                <h3>${item.price}</h3>
-                <h3>{item.amount}</h3>
-                <button onClick={() => removeItem(item.id)}>
+                <div className="cartItemInfo">
+                  <h3>{item.title}</h3>
+                  <h3>${item.price}</h3>
+                  <h3>{item.amount}</h3>
+                </div>
+                <button
+                  className="CartItemRemove"
+                  onClick={() => removeItem(item.id)}
+                >
                   Eliminar producto
                 </button>
               </div>
             ))}
           </div>
-          <h1>${totalPrice}</h1>
-          <form>
+          <h1>Total price: ${totalPrice}</h1>
+          <form className="cartForm">
             <input
               ref={fnameRef}
               type="text"
