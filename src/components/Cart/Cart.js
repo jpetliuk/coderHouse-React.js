@@ -6,7 +6,7 @@ import { collection, addDoc, getFirestore } from "firebase/firestore";
 
 const Cart = () => {
   const [totalPrice, setTotalPrice] = useState(0);
-  const { cart, removeItem } = useContext(CartContext);
+  const { cart, clear, removeItem } = useContext(CartContext);
   const fnameRef = useRef(null);
   const fphoneRef = useRef(null);
   const femailRef = useRef(null);
@@ -32,6 +32,7 @@ const Cart = () => {
       .then((response) => {
         console.log(response);
         alert("Compra exitosa");
+        clear();
       })
       .catch(() => alert("La compra no pudo ser completada"));
   };
